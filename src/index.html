@@ -8,8 +8,49 @@
     <title>Template</title>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<p>test2</p>
+<div class="container">
+    <div class="preview">
+        <div class="base">
+            <div class="desk">
+                <div class="mon mon1"></div>
+                <div class="mon mon2"></div>
+                <div class="mon mon3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="monitor_control">
+        <label for="monitor1">
+            <input type="radio" id="monitor1" name="monitor" class="monitor_button" checked>
+            <span>1</span>
+        </label>
+        <label for="monitor2">
+            <input type="radio" id="monitor2" name="monitor" class="monitor_button">
+            <span>2</span>
+        </label>
+        <label for="monitor3">
+            <input type="radio" id="monitor3" name="monitor" class="monitor_button">
+            <span>3</span>
+        </label>
+    </div>
+    <div class="height_control">
+        <label>
+            <span></span>
+            <input type="range" min="1" max="100" value="50" id="monitor_height">
+        </label>
+    </div>
+    <div class="rotation_control">
+        <label for="rotation1" >
+            <input type="radio" name="rotation" id="rotation1" class="landscape" checked>
+            <span>></span>
+        </label>
+        <label for="rotation2" >
+            <input type="radio" name="rotation" id="rotation2" class="portrait">
+            <span>^</span>
+        </label>
+    </div>
+</div>
 </body>
 </html>
