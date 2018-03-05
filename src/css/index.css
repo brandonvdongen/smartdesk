@@ -33,7 +33,7 @@
     background-color: white;
     height: 25px;
     width: 40px;
-    transition: transform 1s;
+    transition: transform .5s;
 }
 
 .height_control label {

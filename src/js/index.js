@@ -9,7 +9,9 @@ function set_monitor_rotation(monitor, rotation) {
 document.addEventListener("DOMContentLoaded", (ev) => {
 
     let settings = {
-        active_monitor: 0
+        active_monitor: 0,
+        monitor_rotation:[1,0,0],
+        monitor_height:[0,0,0]
     };
     const preview = document.querySelector(".preview");
     const monitor_control = document.querySelector(".monitor_control");
@@ -45,8 +47,9 @@ document.addEventListener("DOMContentLoaded", (ev) => {
                 settings.active_monitor = value;
                 console.log(settings.active_monitor);
             });
-            console.log(monitor_buttons[value]);
         }
     }
+
+
 
 });
