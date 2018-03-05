@@ -1,72 +1,75 @@
 .container {
-  background-color: silver;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 50px;
-  display:grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 175px;
-  grid-auto-rows: 100px;
+    background-color: silver;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 175px;
+    grid-auto-rows: 100px;
 }
 
 .preview {
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  background-color:dimgrey;
-}
-.preview .base{
-  background-color:black;
-  height:100px;
-  width:200px;
-}
-.preview .desk{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  justify-items:center;
-}
-.preview .mon{
-  background-color:white;
-  height:25px;
-  width:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dimgrey;
 }
 
-.height_control label{
-  height:100%;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 50px 1fr;
-  grid-column-gap: 10px;
-  padding:10px;
-  box-sizing: border-box;
+.preview .base {
+    background-color: black;
+    height: 100px;
+    width: 200px;
+}
+
+.preview .desk {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.preview .mon {
+    background-color: white;
+    height: 25px;
+    width: 40px;
+    transition: transform 1s;
+}
+
+.height_control label {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50px 1fr;
+    grid-column-gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .monitor_control,
-.rotation_control
-{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: 1fr;
-  background-color: #189ad3;
+.rotation_control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    background-color: #189ad3;
 }
 
-.rotation_control{
-  grid-template-columns: repeat(2,1fr);
+.rotation_control {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .monitor_control input[type=radio],
-.rotation_control input[type=radio]{
-  display:none;
+.rotation_control input[type=radio] {
+    display: none;
 }
 
 .monitor_control input:checked ~ span,
-.rotation_control input:checked ~ span{
-  box-shadow: 0 0 15px steelblue inset;
+.rotation_control input:checked ~ span {
+    box-shadow: 0 0 15px steelblue inset;
 }
 
 .monitor_control span,
-.rotation_control span{
-  display:  block;
-  height:100px;
+.rotation_control span {
+    display: block;
+    height: 100px;
 }

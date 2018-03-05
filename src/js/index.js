@@ -8,7 +8,9 @@ function set_monitor_rotation(monitor, rotation) {
 
 document.addEventListener("DOMContentLoaded", (ev) => {
 
-    let active_monitor = 0;
+    let settings = {
+        active_monitor: 0
+    };
     const preview = document.querySelector(".preview");
     const monitor_control = document.querySelector(".monitor_control");
     const height_control = document.querySelector(".height_control");
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
     for (let value in rotation) {
         if (rotation.hasOwnProperty(value)) {
             rotation[value].addEventListener("click", () => {
-                set_monitor_rotation(desk.monitors[active_monitor], value);
+                set_monitor_rotation(desk.monitors[settings.active_monitor], value);
             });
 
         }
@@ -40,8 +42,8 @@ document.addEventListener("DOMContentLoaded", (ev) => {
         if (monitor_buttons.hasOwnProperty(value)) {
             console.log(value);
             monitor_buttons[value].addEventListener("click", () => {
-                active_monitor = value;
-                console.log(active_monitor);
+                settings.active_monitor = value;
+                console.log(settings.active_monitor);
             });
             console.log(monitor_buttons[value]);
         }
