@@ -1,21 +1,14 @@
-function set_monitor_rotation(monitor, rotation) {
-    if (rotation === "landscape") {
-        monitor.style.transform = "rotate(0deg)";
-    } else if (rotation === "portrait") {
-        monitor.style.transform = "rotate(90deg)";
-    }
-}
-
 document.addEventListener("DOMContentLoaded", (ev) => {
+
 
     let settings = {
         active_monitor: 0,
-        monitor_rotation:[1,0,0],
-        monitor_height:[0,0,0]
+        monitor_rotation: [0, 0, 0],
+        monitor_height: [0, 0, 0]
     };
     const preview = document.querySelector(".preview");
     const monitor_control = document.querySelector(".monitor_control");
-    const height_control = document.querySelector(".height_control");
+    const height_control = document.querySelector(".height_control input");
     const rotation_control = document.querySelector(".rotation_control");
 
     const desk = {
@@ -28,13 +21,39 @@ document.addEventListener("DOMContentLoaded", (ev) => {
         portrait: rotation_control.querySelector(".portrait")
     };
 
+    function update_screen() {
+        let rotation = 0
+        if (settings.monitor_rotation[settings.active_monitor] === 1) {
+            height_control.min = 30;
+        } else {
+            height_control.min = 0;
+        }
+        if (settings.monitor_rotation[settings.active_monitor] === 1) {
+            rotation = 90;
+        } else {
+            rotation = 0;
+        }
+        let height = settings.monitor_height[settings.active_monitor];
+        desk.monitors[settings.active_monitor].style.transform = "rotate(" + rotation + "deg)";
+        desk.monitors[settings.active_monitor].style.bottom = height_control.value / 5 + "px";
+    }
+
+
+
     console.log(rotation);
     console.log(desk);
 
     for (let value in rotation) {
         if (rotation.hasOwnProperty(value)) {
             rotation[value].addEventListener("click", () => {
-                set_monitor_rotation(desk.monitors[settings.active_monitor], value);
+                if (value === "landscape") {
+                    settings.monitor_rotation[settings.active_monitor] = 0;
+                } else if (value === "portrait") {
+                    settings.monitor_rotation[settings.active_monitor] = 1;
+
+                }
+
+                update_screen();
             });
 
         }
@@ -42,14 +61,18 @@ document.addEventListener("DOMContentLoaded", (ev) => {
 
     for (let value in monitor_buttons) {
         if (monitor_buttons.hasOwnProperty(value)) {
-            console.log(value);
             monitor_buttons[value].addEventListener("click", () => {
                 settings.active_monitor = value;
-                console.log(settings.active_monitor);
+                height_control.value = settings.monitor_height[value];
+                update_screen();
+                console.log(settings);
             });
         }
     }
 
-
+    height_control.addEventListener("input", (ev) => {
+        settings.monitor_height[settings.active_monitor] = height_control.value;
+        update_screen();
+    });
 
 });
