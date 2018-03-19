@@ -1,40 +1,60 @@
 .container {
-    background-color: silver;
+    /* background-color: silver; */
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
     font-size: 50px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 175px;
-    grid-auto-rows: 100px;
+    grid-template-rows: 15% 40%;
+    grid-gap: 1%;
+    background: linear-gradient(black,rgb(50, 50, 50));
+    color:white;
+    padding-top:5px;
+    padding-bottom:5px;
+    box-sizing:  border-box;
+    overflow:hidden;
+}
+.container>div{
+    border: 2px solid #169AD3;
+    border-radius:10px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .preview {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: dimgrey;
+    align-items: flex-end;
 }
 
 .preview .base {
-    background-color: black;
-    height: 100px;
-    width: 200px;
+    border: 2px solid #169AD3;
+    height: 40%;
+    width: 90%;
 }
-
 .preview .desk {
     display: grid;
+    position: relative;
+    top: -50%;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    margin-top: -11%;
+    grid-gap: 5px;
+}
+.preview .desk .base{
+    height:5px;
+    width: 35px;
+    border-radius: 5px;
 }
 
 .preview .mon {
-    background-color: white;
-    height: 25px;
-    width: 40px;
+    height: 50px;
+    width: 85%;
     transition: transform .5s;
     position: relative;
+    border: 2px solid #169AD3;
+    border-radius: 10px;
 }
 
 .height_control label {
@@ -52,11 +72,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    background-color: #189ad3;
 }
 
 .rotation_control {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .monitor_control input[type=radio],
@@ -65,12 +84,13 @@
 }
 
 .monitor_control input:checked ~ span,
-.rotation_control input:checked ~ span {
-    box-shadow: 0 0 15px steelblue inset;
-}
+.rotation_control input:checked ~ span {border: 2px solid white;}
 
 .monitor_control span,
 .rotation_control span {
     display: block;
-    height: 100px;
+    height: 65%;
+    margin: 10px;
+    border: 2px solid #169AD3;
+    border-radius: 10px;
 }

@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", (ev) => {
     };
 
     function update_screen() {
-        let rotation = 0
+        let rotation = 0;
         if (settings.monitor_rotation[settings.active_monitor] === 1) {
-            height_control.min = 30;
+            height_control.min = 65;
         } else {
             height_control.min = 0;
         }
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
     for (let value in rotation) {
         if (rotation.hasOwnProperty(value)) {
             rotation[value].addEventListener("click", () => {
+                update_screen();
                 if (value === "landscape") {
                     settings.monitor_rotation[settings.active_monitor] = 0;
                 } else if (value === "portrait") {
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", (ev) => {
         if (monitor_buttons.hasOwnProperty(value)) {
             monitor_buttons[value].addEventListener("click", () => {
                 settings.active_monitor = value;
+                update_screen();
                 height_control.value = settings.monitor_height[value];
                 update_screen();
                 console.log(settings);
